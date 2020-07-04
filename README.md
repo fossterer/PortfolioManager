@@ -1,5 +1,7 @@
 # Portfolio Manager
 
+[![Join the chat at https://gitter.im/PortfolioManager-talk/community](https://badges.gitter.im/PortfolioManager-talk/community.svg)](https://gitter.im/PortfolioManager-talk/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ![Financial Portfolio - A Manager's Desk](resources/images/financial-portfolio.png)
 
 ## What is this
