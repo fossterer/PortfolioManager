@@ -1,10 +1,16 @@
 # Portfolio Manager
 
-![Financial Portfolio - A Manager's Desk](images/financial-portfolio.png)
+![Financial Portfolio - A Manager's Desk](resources/images/financial-portfolio.png)
 
 ## What is this
 
-A web application to track financial portfolio growth. Uses free and open APIs to fetch real-time market data to store in an online database. Produces a graph updated in real-time. Stretch goals are (1) Introduce a user-authentication mechanism
+A web application to track financial portfolio growth. Uses free and open APIs to fetch real-time market data to store in an online database. Produces a graph updated in real-time.
+
+Stretch goals are (1) Introduce a user-authentication mechanism
+
+## What does it look like?
+
+Take a look at our Figma designs [here](https://www.figma.com/file/FATHqe7mtnRAiE3SCq2XY4/Phase-1?node-id=0%3A1)
 
 ## How do we do this
 
@@ -44,9 +50,3 @@ A week before the end (i.e starting Jul 26), the focus would be on performing fi
 ### Actual
 
 #### Jul 04 - Jul 08 2019
-
-- Deciding between fragments and activities and setting up 2 activities
-- Designing bordered boxes as expected
-- Deciding on database structure to use
-
-#### Jul 11 - Jul 15 2019
