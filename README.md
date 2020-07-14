@@ -34,14 +34,14 @@ A week before the end (i.e starting Jul 26), the focus would be on performing fi
 
 ### Expected
 
-#### Jul 06 - Jul 11 2019
+#### Jul 06 - Jul 11 2020
 
 - Setup IDE for local development (UI, API)
 - Setup DB locally for reading/writing data
 - Setup Git locally for interacting with Github
 - Start working on UI (tab-1/tab-2) and send PRs
 
-#### Jul 12 - Jul 18 2019
+#### Jul 12 - Jul 18 2020
 
 - *Tab-1:* A "data-entry strip" at the top should write data into database in the following format: 
 
@@ -56,25 +56,30 @@ A tabular form listing the above fields is populated with data from database. Sh
 
 - *Tab-2:* A graph should be available with some sample data populated in a table in database. Start working on batch job to populate data from Finnhub
 
-#### Jul 19 - Jul 25 2019
+#### Jul 19 - Jul 25 2020
 
 - *Tab-1:* Finalize working on the scrollable tabular form.
 - *Tab-2:* Finalize working on batch job to populate database with data from Finnhub
 
-#### Jul 26 - Jul 30 2019
+#### Jul 26 - Jul 30 2020
 
 - A presentation is prepared
 - App is deployed in AWS EC2/Heroku/a VPS
 
 ### Actual
 
-#### Jul 06 - Jul 11 2019
+#### Jul 06 - Jul 11 2020
 
-#### Jul 12 - Jul 18 2019
+- Setup IDE for local development (UI, API)         - DONE
+- Setup DB locally for reading/writing data         - DONE
+- Setup Git locally for interacting with Github     - DONE
+- Start working on UI (tab-1/tab-2) and send PRs    - Moved to Jul 12 - Jul 18
 
-#### Jul 19 - Jul 25 2019
+#### Jul 12 - Jul 18 2020
 
-#### Jul 26 - Jul 30 2019
+#### Jul 19 - Jul 25 2020
+
+#### Jul 26 - Jul 30 2020
 
 ## How do I use this
 
