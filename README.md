@@ -85,3 +85,28 @@ Please open an issue here on Github or talk to us on [Gitter](https://gitter.im/
 ## Who do I talk to
 
 We're on [Gitter](https://gitter.im/PortfolioManager-talk/community)!
+
+## General Design
+    Add New Stock Function()
+
+        User enters stock info in the front end
+
+        Table 1 All Columns are filled
+
+        Table 2 Ticker Column is filled
+
+        Table 2 StockPrice is Filled 
+
+            Empty Dictionary is created?
+
+    Current Price Function()
+
+        Gets Called Every Hour
+
+        Loop Through Table 2 
+
+            Adds New Current Price AND Date/Time to each dictionary
+
+    Display Graph Function()
+
+        Uses Table 2 Dictionaries to plot graphs
