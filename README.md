@@ -62,7 +62,8 @@ A tabular form listing the above fields is populated with data from database. Sh
 - *Tab-2:* Finalize working on batch job to populate database with data from Finnhub
 
 #### Jul 26 - Jul 30 2020
-
+ 
+- Planning out and performing integration of tab-1 and tab-2 (aligning table-1 name and its column name expectations, determining keeping of automated service running etc.)
 - A presentation is prepared
 - App is deployed in AWS EC2/Heroku/a VPS
 
@@ -77,7 +78,15 @@ A tabular form listing the above fields is populated with data from database. Sh
 
 #### Jul 12 - Jul 18 2020
 
+- Tab-1: Working on fetching data from/writing to database via Flask
+- Automated service: Started work on modelling data from Finnhub API calls so it can be saved into database
+- Tab-2: Not started
+
 #### Jul 19 - Jul 25 2020
+
+- Tab-1: Working on writing more than one value read from UI into database via Flask
+- Automated service: Populating Finnhub responses to database on a (near-)automated basis
+- Tab-2: Experimenting if Matplotlib-generated graphs hosted in Python (Flask) can be served in an Angular front-end. Alternative is to simply serve 1. Ticker and 2, JSON data so Angular Charts module can plot it in Angular code
 
 #### Jul 26 - Jul 30 2020
 
