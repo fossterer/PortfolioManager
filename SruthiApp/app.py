@@ -27,7 +27,7 @@ def index():
 
         cur.close()
         return 'Done!'
-    return render_template('index.html')
+    return 'Done!'
 
 
 
