@@ -6,6 +6,8 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<script src="node_modules/chart.js/Chart.min.js"></script>
+<script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
 
 <style>
   :host {
@@ -335,22 +337,46 @@
   <!-- Resources -->
   <h2>StarterApp</h2>
   <p>Click the button to retrieve data from MySqlDB</p>
+  <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" method="POST">
+    Ticker <br>
+     <input type="text" name="TICKER" ngModel required/>
+    <br>
+    Name <br>
+     <input type="text" name="NAME" ngModel required/>
+    <br>
+    Security Type <br>
+    <input type="text" name="SECURITY_TYPE" ngModel required/>
+    <br>
+    Quantity <br>
+    <input type="number" name="QUANTITY" ngModel required/>
+    <br>
+    Purchase Price <br>
+    <input type="number" step=0.01 name="PURCHASE_PRICE" ngModel required/>
+    <br>
+    Purchase Date <br>
+    <input type="date" name="PURCHASE_DATE" ngModel required/>
+    <br>
+    <button type="submit"> Submit</button>
+    <input type="reset">
 
+
+  </form> 
   <div class="card-container">
    
+    
     <a class="card" target="_blank" rel="noopener">
-      <button (click)="createNewTable()"> Get Data</button>
-      
+      <button (click)="createNewTable()"> Fetch Price Data</button>
+      <button (click)="clearData()"> Clear Price Data</button>
+
     </a>
     
   </div>
+
   <p id="p1"></p>
-  
+  <p id="p2"></p>
 
-
   
-  
-  
+  <app-my-chart></app-my-chart>
 
     
 
