@@ -4,17 +4,18 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MyChartComponent } from './Components/my-chart';
 import { HttpClientModule }    from '@angular/common/http';
-import { MyChartComponent } from './Components/my-chart/my-chart.component'; //makes http client availible everywhere
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyChartComponent
+    MyChartComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule, //add http to imports
+    HttpClientModule, 
     AppRoutingModule,
     FormsModule
   ],

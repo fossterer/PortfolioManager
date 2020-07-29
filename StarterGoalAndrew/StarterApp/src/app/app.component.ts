@@ -58,20 +58,34 @@ export class AppComponent {
   fetchData() {
     return this.taskService.fetchData('Testing').subscribe((response: any) =>{
       console.log(response);
-      var x = " "
+      var x = null
       for(x in response){
-        this.data[x] = response[x];
+        //this.data[x] = response[x];
+        //this.data.push(response[x])
+        this.data[x] = JSON.parse(JSON.stringify(response[x]));
+        console.log('response at x in function is ', response[x]);
+        console.log('this.data at x in function is ', this.data[x]);
+
 
       }
+      //this.data = angular.copy(response);
+      //this.data = JSON.parse(JSON.stringify(response));
+
     })
   }
   fetchPriceData() {
     return this.taskService.fetchPriceData('Testing').subscribe((response: any) =>{
-      console.log(response);
-      var x = " "
+      console.log('Function: RESPONSE is ', response);
+      console.log('Function response type is ', typeof response);
+      console.log('Function response at index 0 is ', response[0]);
+
+
+      var x;
       for(x in response){
 
-        this.priceData[x] = JSON.parse(response[x]);
+        this.priceData[x] = response[x];
+        console.log(response[x]);
+
 
       }
     })
