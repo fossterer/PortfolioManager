@@ -16,13 +16,13 @@ export class TaskService {
     //we want to send a web request to creat a table of data
     return this.webReqService.post('newarr', { title });
   }
-  fetchData(title: string) {
+  async fetchData(title: string) {
     //we want to send a web request to creat a table of data
-    return this.webReqService.post('fetchdata', { title });
+    return this.webReqService.postPromise('fetchdata', { title });
   }
-  fetchPriceData(title: string) {
+  async fetchPriceData(title: string) {
     //we want to send a web request to creat a table of data
-    return this.webReqService.post('fetchpricedata', { title });
+    return this.webReqService.postPromise('fetchpricedata', { title });
   }
 }
   

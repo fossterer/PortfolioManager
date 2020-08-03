@@ -5,11 +5,11 @@ import { MyChartComponent } from './Components/my-chart';
 
 
 const routes: Routes = [
-    { path: '', component: AppComponent },
+    { path: ' ', component: AppComponent },
     { path: 'graph', component: MyChartComponent },
 
     // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    //{ path: '**', redirectTo: ' ' }
 ];
 
 export const appRoutingModule = RouterModule.forRoot(routes);

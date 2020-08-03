@@ -20,9 +20,6 @@ export class AppComponent {
   QUANTITY: number;
   PURCHASE_PRICE: number;
   PURCHASE_DATE: Date;
- 
-
-
   
   onSubmit(data)
   {
@@ -47,46 +44,30 @@ export class AppComponent {
       return response;
     })
   }
+
   clearData() {
     this.taskService.clearData('Testing').subscribe((response: any) =>{
       console.log(response);
-
-      //document.getElementById("p2").innerHTML = txt;
       return response;
     })
   }
-  fetchData() {
-    return this.taskService.fetchData('Testing').subscribe((response: any) =>{
-      console.log(response);
+
+  async fetchData() {
+    return this.taskService.fetchData('Testing').then(response =>{
+      let a = response;
       var x = null
       for(x in response){
-        //this.data[x] = response[x];
-        //this.data.push(response[x])
         this.data[x] = JSON.parse(JSON.stringify(response[x]));
-        console.log('response at x in function is ', response[x]);
-        console.log('this.data at x in function is ', this.data[x]);
-
-
-      }
-      //this.data = angular.copy(response);
-      //this.data = JSON.parse(JSON.stringify(response));
+      } 
 
     })
   }
-  fetchPriceData() {
-    return this.taskService.fetchPriceData('Testing').subscribe((response: any) =>{
-      console.log('Function: RESPONSE is ', response);
-      console.log('Function response type is ', typeof response);
-      console.log('Function response at index 0 is ', response[0]);
 
-
+  async fetchPriceData() {
+      return this.taskService.fetchPriceData('Testing').then(response =>{
       var x;
       for(x in response){
-
-        this.priceData[x] = response[x];
-        console.log(response[x]);
-
-
+        this.priceData[x] = JSON.parse((response[x]));
       }
     })
   }

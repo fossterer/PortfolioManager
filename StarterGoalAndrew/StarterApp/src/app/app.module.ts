@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+import { appRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { MyChartComponent } from './Components/my-chart';
 import { HttpClientModule }    from '@angular/common/http';
@@ -16,7 +16,7 @@ import { HttpClientModule }    from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule, 
-    AppRoutingModule,
+    appRoutingModule,
     FormsModule
   ],
   providers: [AppComponent, MyChartComponent],

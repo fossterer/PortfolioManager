@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Directive } from '@angular/core';
 import { Chart } from 'chart.js';
 import { disableDebugTools } from '@angular/platform-browser';
 import { AppComponent } from '../../app.component';
@@ -9,102 +9,94 @@ import { AppComponent } from '../../app.component';
   styleUrls: ['./my-chart.component.css']
 })
 export class MyChartComponent implements OnInit {
-  returnedData: any
-  returnedPriceData: any
+  returnedData = [];
+  returnedPriceData = [];
   constructor(private AppComponent: AppComponent) { }
 
-  ngOnInit(): void {
-    
-    this.AppComponent.fetchData();
-    console.log('x is:', this.AppComponent.data)
-    console.log('the type of x is ', typeof this.AppComponent.data)
-    console.log('the data is at index 0 is ', this.AppComponent.data[0])
+  //chooses a random color for graph
+  dynamicColors() {
+    var r = Math.floor(Math.random() * 255);
+    var g = Math.floor(Math.random() * 255);
+    var b = Math.floor(Math.random() * 255);
+    return "rgba(" + r + "," + g + "," + b + ", 0.5)";
+  }
+  //Gets and stores data for x y plotting
+  pointData(dictArr): any {
+    let xyData = []
+    for (var i = 0; i < dictArr.length; i++) {
+      xyData.push({
+        t: dictArr[i].time,
+        y: dictArr[i].price
+      })
+    }
+    console.log(xyData)
+    return xyData
 
-       
-    let x = this.AppComponent.data;
-    console.log('returned data at index 0 is ', x[0]);
-      
-      
+  }
 
-    //let x = this.AppComponent.data;
-    //let x = [...this.AppComponent.data]
-    //console.log('x is:', x)
-    //console.log('the type of x is ', typeof x)
-    //console.log('x at index 0 is ', x[0])
-    //console.log('the type of x is ', typeof this.returnedData)
-    //console.log('x at index 0 is ', this.returnedData[0])
+  async ngOnInit(): Promise<void> {
 
+    await this.AppComponent.fetchData();
 
+    this.returnedData = this.AppComponent.data
 
-    /*this.AppComponent.fetchPriceData();
-    let y = this.AppComponent.priceData;
+    await this.AppComponent.fetchPriceData();
 
-    console.log('y is ', y)
-    console.log('the type of y is', typeof y)
-    console.log('y at 0 is', y[0])*/
+    this.returnedPriceData = this.AppComponent.priceData
 
+    //Gets and stores the data for ticker names
+    var y = null
+    for (y in this.AppComponent.data) {
+      this.returnedData[y] = JSON.parse(JSON.stringify(this.AppComponent.data[y]));
+    }
 
-
-   //this.returnedData = this.AppComponent.fetchData()
-   //console.log(this.returnedData)
-    
-   
+    //set up the graph for plotting 
     var myChart = new Chart("myChart", {
-      type: 'line',
-      data: {
-          labels: ['2020-07-28 22:03:15.77637', '2020-07-28 22:04:16.836549', '2020-07-28 22:05:17.89912', 'April', 'May', 'June'],
-          datasets: [{
-              label: 'AAPL STOCK',
-              data: 
-              [170.84, 130.84, 1330.84],
-              backgroundColor: [
-                'rgba(75, 192, 192, 1)',
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-              ],
-              borderWidth: 1
-          },
-          {
-            label: 'GOOGLE STOCK',
-            data: 
-            [120.84, 1300.84, 130.84],
-            backgroundColor: [
-              'rgba(54, 162, 235, 1)',
-            ],
-            borderColor: [
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        },]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }]
-          }
-      }
-  });
+      type: 'scatter',
 
-  for(let i=0;i<10;i++){
-    myChart.data.datasets.push({
-      label: 'apple',
-      data: 
-        [1,23,4],
+      options: {
+        scales: {
+          xAxes: [{
+            type: 'time',
+            position: 'bottom'
+          }],
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+    //loop and stores x y datasets 
+    for (let i = 0; i < this.returnedData.length; i++) {
+      myChart.data.datasets.push({
+        label: this.returnedData[i],
+        data:
+          //[1,2,3],
+          this.pointData(this.returnedPriceData[i]),
+        fill: false,
+        lineTension: 0.1,
+        showLine: true,
         backgroundColor: [
-          'rgba(75, 192, 192, 1)',
+          this.dynamicColors(),
         ],
         borderColor: [
-            'rgba(255, 99, 132, 1)',
+          this.dynamicColors(),
         ],
-        borderWidth: 1
-    });
-  } myChart.update();
-
-
+        borderWidth: 1,
+        pointRadius: 0,
+        pointBorderColor: "black",
+        pointBackgroundColor: "white",
+        pointBorderWidth: 1,
+        pointHoverRadius: 8,
+        pointHoverBackgroundColor: "white",
+        pointHoverBorderColor: "green",
+        pointHoverBorderWidth: 2,
+        pointHitRadius: 10
+      });
+    } myChart.update();
   }
 
 }

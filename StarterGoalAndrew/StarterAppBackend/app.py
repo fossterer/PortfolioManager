@@ -1,17 +1,12 @@
 from flask import Flask, render_template, request, jsonify, url_for
 from flaskext.mysql import MySQL
 from flask_cors import CORS
+import json
 import websocket, requests
 # Schedule Library imported 
 import schedule 
 import time 
 from datetime import datetime
-#graph libraries
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-
-import json
 
 
 app = Flask(__name__)
@@ -32,7 +27,7 @@ mysql = MySQL(app)
 def index():
     return 'Index Page'
 
-#for the numbers examples task
+#for the numbers starting task
 @app.route('/list', methods=['GET', 'POST'])
 def data():
     #if request.method == 'POST':
@@ -139,7 +134,7 @@ def autofetch():
         schedule.run_pending() 
         time.sleep(1) 
 
-#grabs data from db and sends to agnular graph
+#grabs data from db and sends to angular graph
 @app.route('/fetchdata', methods =['GET', 'POST'])
 def fetchData():
    
@@ -149,7 +144,7 @@ def fetchData():
 
     return jsonify(tickers)
 
-#grabs data from db and sends to agnular graph
+#grabs data from db and sends to angular graph
 @app.route('/fetchpricedata', methods =['GET', 'POST'])
 def fetchPriceData():
    
@@ -172,15 +167,7 @@ def get_data():
         QUANTITY = data.get("QUANTITY")
         PURCHASE_PRICE = data.get("PURCHASE_PRICE")
         PURCHASE_DATE = data.get("PURCHASE_DATE")
-
-        #print(TICKER)
-        #print(NAME)
-        #print(SECURITY_TYPE)
-        #print(QUANTITY)
-        #print(PURCHASE_PRICE)
-        #print(PURCHASE_DATE)
-
-
+        
         cur = mysql.get_db().cursor()
 
         cur.execute("INSERT INTO Portfolio (TICKER,NAME,SECURITY_TYPE,QUANTITY,PURCHASE_PRICE,PURCHASE_DATE) VALUES(%s,%s,%s,%s,%s,%s)",(TICKER,NAME,SECURITY_TYPE,QUANTITY,PURCHASE_PRICE,PURCHASE_DATE))
