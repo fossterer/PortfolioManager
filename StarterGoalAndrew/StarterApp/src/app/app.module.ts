@@ -1,20 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+import { appRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
-import { HttpClientModule }    from '@angular/common/http'; //makes http client availible everywhere
+import { MyChartComponent } from './Components/my-chart';
+import { HttpClientModule }    from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyChartComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule, //add http to imports
-    AppRoutingModule
+    HttpClientModule, 
+    appRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [AppComponent, MyChartComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

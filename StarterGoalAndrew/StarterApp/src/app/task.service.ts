@@ -10,7 +10,19 @@ export class TaskService {
 
   createTable(title: string) {
     //we want to send a web request to creat a table of data
-    return this.webReqService.post('list', { title });
+    return this.webReqService.post('autofetch', { title });
+  }
+  clearData(title: string) {
+    //we want to send a web request to creat a table of data
+    return this.webReqService.post('newarr', { title });
+  }
+  async fetchData(title: string) {
+    //we want to send a web request to creat a table of data
+    return this.webReqService.postPromise('fetchdata', { title });
+  }
+  async fetchPriceData(title: string) {
+    //we want to send a web request to creat a table of data
+    return this.webReqService.postPromise('fetchpricedata', { title });
   }
 }
   
