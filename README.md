@@ -10,6 +10,8 @@ A web application to track financial portfolio growth. Uses free and open APIs t
 
 Stretch goals are (1) Introduce a user-authentication mechanism
 
+See our presentation on [YouTube](https://www.youtube.com/watch?v=X_vwQ8-0Tn4)
+
 ## What does it look like?
 
 Take a look at our Figma designs [here](https://www.figma.com/file/FATHqe7mtnRAiE3SCq2XY4/Phase-1?node-id=0%3A1)
